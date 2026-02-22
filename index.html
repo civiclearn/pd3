@@ -108,13 +108,54 @@
     @media (max-width: 640px) {
       .nav-links a:not(.nav-cta) { display: none; }
     }
+	
+	/* ═══════════════════════════════════════════════
+   COUNTDOWN BAR
+═══════════════════════════════════════════════ */
+.countdown-bar {
+  background: linear-gradient(90deg, #1a2744 0%, #0f1729 100%);
+  border-bottom: 1px solid rgba(200,16,46,0.2);
+  padding: 12px 0;
+  position: relative;
+  z-index: 99;
+  margin-top: 64px; /* push below fixed nav */
+}
+.countdown-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 40px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+}
+.cd-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-inv-soft);
+}
+.cd-item .cd-icon { font-size: 1rem; }
+.cd-item .cd-label { font-weight: 500; }
+.cd-item .cd-value {
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cd-item.urgent .cd-value { color: #f87171; }
+.cd-item.deadline-passed .cd-label { text-decoration: line-through; opacity: 0.5; }
+.cd-item.deadline-passed .cd-value { color: var(--text-inv-soft); }
+.cd-date {
+  color: var(--text-inv-soft);
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
 
     /* ═══════════════════════════════════════════════
        HERO — Dark
     ═══════════════════════════════════════════════ */
     .hero {
       background: var(--navy);
-      padding: 140px 0 100px;
+      padding: 80px 0 100px;
       position: relative;
       overflow: hidden;
     }
@@ -941,6 +982,13 @@
   </div>
 </nav>
 
+<!-- ═══════════════════════ COUNTDOWN BAR ═══════════════════════ -->
+<div class="countdown-bar" id="countdown-bar">
+  <div class="container">
+    <div class="countdown-inner" id="countdown-inner"></div>
+  </div>
+</div>
+
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero">
@@ -1366,6 +1414,105 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Countdown bar
+(function() {
+  const exams = [
+    {
+      label: 'Forår 2026',
+      registration_deadline: new Date('2026-03-09T23:59:59+01:00'),
+      written: new Date('2026-05-19T09:00:00+02:00'),
+      oral_start: new Date('2026-06-10T09:00:00+02:00'),
+      oral_end: new Date('2026-06-23T17:00:00+02:00'),
+    },
+    {
+      label: 'Efterår 2026',
+      registration_deadline: new Date('2026-09-15T23:59:59+02:00'),
+      written: new Date('2026-11-17T09:00:00+01:00'),
+      oral_start: new Date('2026-12-01T09:00:00+01:00'),
+      oral_end: new Date('2026-12-14T17:00:00+01:00'),
+    }
+  ];
+
+  function daysUntil(date) {
+    const now = new Date();
+    const diff = date - now;
+    return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+  }
+
+  function formatDate(d) {
+    return d.toLocaleDateString('da-DK', { day: 'numeric', month: 'short' });
+  }
+
+  function render() {
+    const now = new Date();
+    // Find the next relevant exam period
+    let exam = exams.find(e => e.oral_end > now) || exams[exams.length - 1];
+
+    const el = document.getElementById('countdown-inner');
+    const items = [];
+
+    const regDays = daysUntil(exam.registration_deadline);
+    const writtenDays = daysUntil(exam.written);
+    const regPassed = now > exam.registration_deadline;
+    const writtenPassed = now > exam.written;
+
+    // Registration deadline
+    if (!regPassed) {
+      const urgentClass = regDays <= 14 ? ' urgent' : '';
+      items.push(
+        `<div class="cd-item${urgentClass}">
+          <span class="cd-icon">📝</span>
+          <span class="cd-label">Tilmeldingsfrist:</span>
+          <span class="cd-value">${regDays} dage</span>
+          <span class="cd-date">(${formatDate(exam.registration_deadline)})</span>
+        </div>`
+      );
+    } else {
+      items.push(
+        `<div class="cd-item deadline-passed">
+          <span class="cd-icon">📝</span>
+          <span class="cd-label">Tilmelding lukket</span>
+          <span class="cd-value">—</span>
+        </div>`
+      );
+    }
+
+    // Next exam date
+    if (!writtenPassed) {
+      items.push(
+        `<div class="cd-item">
+          <span class="cd-icon">📅</span>
+          <span class="cd-label">Skriftlig prøve:</span>
+          <span class="cd-value">${writtenDays} dage</span>
+          <span class="cd-date">(${formatDate(exam.written)})</span>
+        </div>`
+      );
+    }
+
+    // Oral dates
+    const oralDays = daysUntil(exam.oral_start);
+    if (now < exam.oral_end) {
+      items.push(
+        `<div class="cd-item">
+          <span class="cd-icon">🎤</span>
+          <span class="cd-label">Mundtlig prøve:</span>
+          <span class="cd-value">${oralDays} dage</span>
+          <span class="cd-date">(${formatDate(exam.oral_start)} – ${formatDate(exam.oral_end)})</span>
+        </div>`
+      );
+    }
+
+    // Season label
+    items.push(`<div class="cd-item"><span class="cd-date">${exam.label}</span></div>`);
+
+    el.innerHTML = items.join('');
+  }
+
+  render();
+  // Update every hour
+  setInterval(render, 3600000);
+})();
 </script>
 
 </body>
