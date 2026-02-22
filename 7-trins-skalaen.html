@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-trins-skalaen forklaret: Sådan bedømmes Prøve i Dansk 3 — dansk3.dk</title>
+  <meta name="description" content="Forstå 7-trins-skalaen og hvordan Prøve i Dansk 3 bedømmes. Karakterer, vægtning, bestå-krav og hvad censorerne leder efter.">
+  <meta property="og:title" content="7-trins-skalaen forklaret: Sådan bedømmes Prøve i Dansk 3">
+  <meta property="og:description" content="Forstå karakterskalaen og bedømmelseskriterierne for PD3.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://dansk3.dk/7-trins-skalaen.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #C8102E;
+      --red-dark: #9E0B22;
+      --red-glow: rgba(200, 16, 46, 0.12);
+      --navy: #0f1729;
+      --cream: #faf8f5;
+      --text: #1a1a2e;
+      --text-soft: #5a5d6e;
+      --text-inv-soft: #9da3b4;
+      --green: #2d9d6a;
+      --border: rgba(255,255,255,0.08);
+    }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav { background: rgba(15, 23, 41, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'DM Serif Display', serif; color: #fff; font-size: 1.2rem; text-decoration: none; }
+    .nav-brand span { color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-inv-soft); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--red) !important; color: #fff !important; padding: 9px 22px; border-radius: 8px; font-weight: 600; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+    @media (max-width: 640px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+    .article-hero {
+      background: var(--navy);
+      padding: 120px 24px 64px;
+      text-align: center;
+    }
+    .article-hero .kicker {
+      color: rgba(212,168,83,0.9);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      margin: 0 auto 16px;
+    }
+    .article-hero .meta { color: var(--text-inv-soft); font-size: 0.88rem; }
+
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+    .article-wrap h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-wrap h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 32px 0 12px;
+    }
+    .article-wrap p {
+      color: var(--text-soft);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .article-wrap a { color: var(--red); text-decoration: none; font-weight: 500; }
+    .article-wrap a:hover { text-decoration: underline; }
+
+    .info-box {
+      background: #fff;
+      border-left: 4px solid var(--red);
+      border-radius: 0 12px 12px 0;
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+    .info-box h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .info-box p { margin-bottom: 8px; font-size: 0.93rem; }
+    .info-box p:last-child { margin-bottom: 0; }
+
+    /* Grade visual */
+    .grade-scale {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 32px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .grade-row {
+      display: grid;
+      grid-template-columns: 72px 1fr 140px;
+      align-items: center;
+      padding: 16px 20px;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      font-size: 0.93rem;
+    }
+    .grade-row:last-child { border-bottom: none; }
+    .grade-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+    }
+    .grade-label { font-weight: 600; }
+    .grade-desc { color: var(--text-soft); font-size: 0.85rem; }
+    .grade-bar {
+      height: 6px;
+      border-radius: 3px;
+    }
+    .g12 .grade-num { color: #059669; } .g12 .grade-bar { background: #059669; width: 100%; }
+    .g10 .grade-num { color: #2d9d6a; } .g10 .grade-bar { background: #2d9d6a; width: 85%; }
+    .g7  .grade-num { color: #6b9e3c; } .g7  .grade-bar { background: #6b9e3c; width: 65%; }
+    .g4  .grade-num { color: #d4a853; } .g4  .grade-bar { background: #d4a853; width: 45%; }
+    .g2  .grade-num { color: #e88c30; } .g2  .grade-bar { background: #e88c30; width: 30%; }
+    .g0  .grade-num { color: #dc2626; } .g0  .grade-bar { background: #dc2626; width: 15%; }
+    .gn3 .grade-num { color: #991b1b; } .gn3 .grade-bar { background: #991b1b; width: 5%; }
+
+    /* Weighting visual */
+    .weight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .weight-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .weight-card.double {
+      border-color: var(--red);
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .weight-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+    .weight-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .weight-card.double .weight-val { color: var(--red); }
+    .weight-note {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 640px) {
+      .weight-grid { grid-template-columns: 1fr; }
+      .grade-row { grid-template-columns: 56px 1fr 100px; padding: 12px 16px; }
+    }
+
+    /* Example calc */
+    .calc-example {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      margin: 32px 0;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .calc-example h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 0.93rem;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .calc-row:last-of-type { border-bottom: none; }
+    .calc-row .label { color: var(--text-soft); }
+    .calc-row .val { font-weight: 600; }
+    .calc-result {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 2px solid var(--navy);
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .calc-result .pass { color: var(--green); }
+
+    .cta-band {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin: 56px 0 0;
+      text-align: center;
+    }
+    .cta-band h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .cta-band p { color: var(--text-inv-soft) !important; font-size: 0.95rem; margin-bottom: 24px; }
+    .cta-band .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: var(--red); color: #fff;
+      border-radius: 10px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.1s;
+    }
+    .cta-band .btn:hover { background: var(--red-dark); transform: translateY(-1px); text-decoration: none; }
+
+    .footer { background: var(--navy); padding: 40px 0; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { font-family: 'DM Serif Display', serif; color: var(--text-inv-soft); font-size: 0.95rem; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--text-inv-soft); text-decoration: none; font-size: 0.85rem; }
+    .footer-links a:hover { color: #fff; }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">dansk<span>3</span>.dk</a>
+    <div class="nav-links">
+      <a href="/">Forside</a>
+      <a href="https://civiclearn.com/dansk3/login.html">Log ind</a>
+      <a href="https://civiclearn.com/dansk3/checkout.html" class="nav-cta">Kom i gang</a>
+    </div>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="kicker">Bedømmelse · PD3</div>
+  <h1>7-trins-skalaen forklaret: Sådan bedømmes Prøve i Dansk 3</h1>
+  <div class="meta">Sidst opdateret: februar 2026 · 6 min. læsetid</div>
+</header>
+
+<article class="article-wrap">
+
+  <p>Prøve i Dansk 3 bedømmes efter den danske 7-trins-skala — den samme skala, der bruges i gymnasiet og på universiteterne. Men for mange, der tager PD3, er skalaen ukendt. Hvad betyder de enkelte karakterer? Hvad skal til for at bestå? Og hvordan beregnes den samlede karakter?</p>
+
+  <p>Denne guide forklarer det hele — med konkrete eksempler fra PD3.</p>
+
+
+  <h2>De 7 karakterer</h2>
+
+  <p>7-trins-skalaen har, som navnet antyder, syv trin. Bemærk at trinene ikke er jævnt fordelt — der er et spring fra 4 til 7 og fra 7 til 10.</p>
+
+  <div class="grade-scale">
+    <div class="grade-row g12">
+      <div class="grade-num">12</div>
+      <div><div class="grade-label">Fremragende</div><div class="grade-desc">Udtømmende opfyldelse med ingen eller få uvæsentlige mangler</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+    <div class="grade-row g10">
+      <div class="grade-num">10</div>
+      <div><div class="grade-label">Fortrinlig</div><div class="grade-desc">Omfattende opfyldelse med nogle mindre mangler</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+    <div class="grade-row g7">
+      <div class="grade-num">7</div>
+      <div><div class="grade-label">God</div><div class="grade-desc">Opfyldelse med en del mangler</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+    <div class="grade-row g4">
+      <div class="grade-num">4</div>
+      <div><div class="grade-label">Jævn</div><div class="grade-desc">Tilstrækkelig opfyldelse med væsentlige mangler</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+    <div class="grade-row g2">
+      <div class="grade-num">02</div>
+      <div><div class="grade-label">Tilstrækkelig</div><div class="grade-desc">Minimalt acceptabel opfyldelse af fagets mål</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+    <div class="grade-row g0">
+      <div class="grade-num">00</div>
+      <div><div class="grade-label">Utilstrækkelig</div><div class="grade-desc">Ikke acceptabel opfyldelse</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+    <div class="grade-row gn3">
+      <div class="grade-num">-3</div>
+      <div><div class="grade-label">Ringe</div><div class="grade-desc">Helt uacceptabel opfyldelse</div></div>
+      <div><div class="grade-bar"></div></div>
+    </div>
+  </div>
+
+
+  <h2>Vægtning: Ikke alle dele tæller lige meget</h2>
+
+  <p>Det vigtigste at forstå ved PD3-bedømmelsen er, at de tre dele ikke tæller lige meget. Den mundtlige del har dobbelt vægtning — det svarer til, at mundtlig tæller for halvdelen af din samlede karakter.</p>
+
+  <div class="weight-grid">
+    <div class="weight-card">
+      <div class="weight-label">Læseforståelse</div>
+      <div class="weight-val">×1</div>
+      <div class="weight-note">Enkelt vægtet</div>
+    </div>
+    <div class="weight-card">
+      <div class="weight-label">Skriftlig</div>
+      <div class="weight-val">×1</div>
+      <div class="weight-note">Enkelt vægtet</div>
+    </div>
+    <div class="weight-card double">
+      <div class="weight-label">Mundtlig</div>
+      <div class="weight-val">×2</div>
+      <div class="weight-note">Dobbelt vægtet</div>
+    </div>
+  </div>
+
+
+  <h2>Hvordan beregnes den samlede karakter?</h2>
+
+  <p>Den samlede karakter er et vægtet gennemsnit. Formlen er: (Læsning + Skriftlig + Mundtlig × 2) ÷ 4. For at bestå skal gennemsnittet være mindst 2,0.</p>
+
+  <div class="calc-example">
+    <h4>Eksempel: Bestået med god margin</h4>
+    <div class="calc-row"><span class="label">Læseforståelse</span><span class="val">10</span></div>
+    <div class="calc-row"><span class="label">Skriftlig fremstilling</span><span class="val">7</span></div>
+    <div class="calc-row"><span class="label">Mundtlig kommunikation (×2)</span><span class="val">7</span></div>
+    <div class="calc-result"><span>Vægtet gennemsnit</span><span class="pass">(10 + 7 + 7×2) ÷ 4 = 7,75 ✓</span></div>
+  </div>
+
+  <div class="calc-example">
+    <h4>Eksempel: Dumpet trods god læsning</h4>
+    <div class="calc-row"><span class="label">Læseforståelse</span><span class="val">12</span></div>
+    <div class="calc-row"><span class="label">Skriftlig fremstilling</span><span class="val">4</span></div>
+    <div class="calc-row"><span class="label">Mundtlig kommunikation (×2)</span><span class="val">-3</span></div>
+    <div class="calc-result"><span>Vægtet gennemsnit</span><span style="color: var(--red);">(12 + 4 + (-3)×2) ÷ 4 = 2,50 — men se nedenfor</span></div>
+  </div>
+
+  <div class="info-box">
+    <h4>Kan man dumpe med et gennemsnit over 2?</h4>
+    <p>Teknisk set kræves et vægtet gennemsnit på mindst 2,0. Men i praksis vil en karakter på -3 i den mundtlige del (som tæller dobbelt) næsten altid resultere i et for lavt gennemsnit. Det vigtigste råd: forsøm ikke den mundtlige forberedelse.</p>
+  </div>
+
+
+  <h2>Hvad kigger censorerne på?</h2>
+
+  <h3>Læseforståelse</h3>
+  <p>Her er bedømmelsen mest objektiv — dine svar er enten rigtige eller forkerte. Karakter gives baseret på andelen af korrekte svar. Præcision i grammatik, ordforråd og tekstforståelse er afgørende.</p>
+
+  <h3>Skriftlig fremstilling</h3>
+  <p>Censorerne vurderer fire dimensioner: indhold og relevans (besvarar du opgaven?), sammenhæng og struktur (hænger teksten sammen?), ordforråd og udtryk (varieret og præcist sprogbrug?), og grammatisk korrekthed (bøjninger, ordstilling, tegnsætning).</p>
+
+  <h3>Mundtlig kommunikation</h3>
+  <p>Den mundtlige bedømmelse fokuserer på: evnen til at udtrykke dig flydende og sammenhængende, udtale og intonation, ordforråd og sproglig variation, evnen til at deltage i samtale (lytte, respondere, uddybe), og grammatisk korrekthed i talt sprog.</p>
+
+  <div class="info-box">
+    <h4>Det vigtigste råd</h4>
+    <p>Mange tror, at perfekt grammatik er nøglen til en høj karakter. I virkeligheden vægter censorerne <strong>kommunikativ kompetence</strong> — din evne til at gøre dig forståelig, udtrykke nuancer og deltage aktivt i samtale — mindst lige så højt som grammatisk korrekthed.</p>
+  </div>
+
+
+  <h2>Fra teori til praksis</h2>
+
+  <p>Nu kender du skalaen, vægtningen og bedømmelseskriterierne. Det næste skridt er at finde ud af, hvor du selv ligger. Vores simulationer giver dig præcis det: en realistisk karakter på 7-trins-skalaen for hver delprøve, baseret på AI-evaluering kalibreret efter den officielle bedømmelsesvejledning.</p>
+
+
+  <div class="cta-band">
+    <h3>Klar til at se din karakter?</h3>
+    <p>10 komplette PD3-simulationer med AI-evaluering og feedback på alle 9 delprøver.</p>
+    <a href="https://civiclearn.com/dansk3/checkout.html" class="btn">Kom i gang for 899 kr. →</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">© 2026 dansk3.dk · Powered by CivicLearn</div>
+    <div class="footer-links">
+      <a href="/vilkaar.html">Vilkår</a>
+      <a href="/privatliv.html">Privatliv</a>
+      <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

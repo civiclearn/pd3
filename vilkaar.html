@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vilkår og privatlivspolitik — dansk3.dk</title>
+  <meta name="description" content="Handelsbetingelser og privatlivspolitik for dansk3.dk — Prøve i Dansk 3 forberedelsesplatform.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #C8102E;
+      --red-dark: #9E0B22;
+      --navy: #0f1729;
+      --cream: #faf8f5;
+      --text: #1a1a2e;
+      --text-soft: #5a5d6e;
+      --text-inv-soft: #9da3b4;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      background: rgba(15, 23, 41, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      color: var(--text-inv-soft);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--red) !important;
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+
+    /* ─── CONTENT ─── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    .page h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .page .updated {
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      margin-bottom: 48px;
+    }
+
+    .page .toc {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .toc-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      color: var(--red);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 5px 0;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    .section {
+      margin-bottom: 48px;
+    }
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      padding-top: 8px;
+    }
+    .section h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+    .section p {
+      color: var(--text-soft);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+    .section a {
+      color: var(--red);
+      text-decoration: none;
+    }
+    .section a:hover { text-decoration: underline; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin: 56px 0;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--navy);
+      padding: 40px 0;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      color: var(--text-inv-soft);
+      font-size: 0.95rem;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      color: var(--text-inv-soft);
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .footer-links a:hover { color: #fff; }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">dansk<span>3</span>.dk</a>
+    <div class="nav-links">
+      <a href="/">Forside</a>
+      <a href="https://civiclearn.com/dansk3/login.html">Log ind</a>
+      <a href="https://civiclearn.com/dansk3/checkout.html" class="nav-cta">Kom i gang</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <h1>Vilkår og privatlivspolitik</h1>
+  <p class="updated">Sidst opdateret: 22. februar 2026</p>
+
+  <div class="toc">
+    <div class="toc-title">Indhold</div>
+    <a href="#vilkaar">1. Handelsbetingelser</a>
+    <a href="#privatliv">2. Privatlivspolitik</a>
+    <a href="#cookies">3. Cookies</a>
+    <a href="#kontakt">4. Kontaktoplysninger</a>
+  </div>
+
+
+  <!-- ═══════════════ HANDELSBETINGELSER ═══════════════ -->
+  <div class="section" id="vilkaar">
+    <h2>1. Handelsbetingelser</h2>
+
+    <h3>Om tjenesten</h3>
+    <p>dansk3.dk er en online forberedelsesplatform til Prøve i Dansk 3 (PD3). Platformen drives af Testrada Pte Ltd (herefter "vi", "os" eller "Testrada") under brandet CivicLearn. dansk3.dk er ikke tilknyttet det danske Udlændinge- og Integrationsministerium eller officielle prøveudbydere.</p>
+
+    <h3>Produktet</h3>
+    <p>Vi tilbyder simulerede prøver, der følger det officielle PD3-format, med AI-baseret evaluering og feedback. Simulationerne er træningsværktøjer og udgør ikke en officiel prøve. Vi garanterer ikke, at du består den officielle prøve.</p>
+
+    <h3>Betaling og adgang</h3>
+    <p>Alle priser er angivet i danske kroner (DKK) inkl. moms. Betaling sker via Stripe som engangsbetaling. Du får ubegrænset adgang til det købte produkt fra betalingstidspunktet. Adgangen er personlig og må ikke deles med andre.</p>
+
+    <h3>Fortrydelsesret</h3>
+    <p>I henhold til EU's forbrugerregler har du 14 dages fortrydelsesret fra købstidspunktet. Da produktet er digitalt indhold, der leveres øjeblikkeligt, accepterer du ved køb, at fortrydelsesretten bortfalder, når du begynder at anvende platformen. Hvis du ikke har påbegyndt brug af produktet, kan du kontakte os inden for 14 dage for fuld refusion.</p>
+
+    <h3>Ansvarsbegrænsning</h3>
+    <p>Vi bestræber os på at levere korrekt og opdateret indhold, men garanterer ikke for nøjagtigheden af AI-evalueringer eller simulationernes fuldstændige overensstemmelse med den officielle prøve. Vores ansvar er begrænset til det beløb, du har betalt for produktet.</p>
+
+    <h3>Ændringer</h3>
+    <p>Vi forbeholder os retten til at ændre priser, indhold og disse vilkår. Ændringer påvirker ikke allerede gennemførte køb.</p>
+  </div>
+
+  <hr class="divider">
+
+
+  <!-- ═══════════════ PRIVATLIVSPOLITIK ═══════════════ -->
+  <div class="section" id="privatliv">
+    <h2>2. Privatlivspolitik</h2>
+
+    <h3>Dataansvarlig</h3>
+    <p>Testrada Pte Ltd er dataansvarlig for behandling af dine personoplysninger. Du kan kontakte os på <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a>.</p>
+
+    <h3>Hvilke data indsamler vi</h3>
+    <p>Vi indsamler de oplysninger, du selv afgiver: navn, email-adresse og adgangskode ved oprettelse af konto. Ved køb behandler Stripe dine betalingsoplysninger — vi modtager ikke dit kortnummer. Vi registrerer desuden dine besvarelser, resultater og brug af platformen for at levere feedback og spore din fremgang.</p>
+
+    <h3>Formål</h3>
+    <p>Vi bruger dine data til at levere tjenesten (login, adgang, evaluering), kommunikere med dig om din konto, og forbedre platformen. Vi sælger ikke dine data til tredjeparter.</p>
+
+    <h3>Tredjeparter</h3>
+    <p>Vi bruger følgende tjenester til at levere produktet: Supabase (database og autentificering, EU), Stripe (betaling, EU/US), og AI-tjenester fra Anthropic og OpenAI til evaluering af besvarelser. Dine mundtlige og skriftlige besvarelser sendes til disse AI-tjenester udelukkende med henblik på evaluering. Ingen tredjeparter bruger dine data til træning af AI-modeller.</p>
+
+    <h3>Opbevaring</h3>
+    <p>Vi opbevarer dine data, så længe din konto er aktiv. Du kan til enhver tid bede os slette din konto og tilhørende data ved at kontakte os.</p>
+
+    <h3>Dine rettigheder</h3>
+    <p>I henhold til GDPR har du ret til indsigt, berigtigelse, sletning, begrænsning, dataportabilitet og indsigelse. Kontakt os på <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a> for at udøve dine rettigheder. Du har også ret til at klage til Datatilsynet.</p>
+  </div>
+
+  <hr class="divider">
+
+
+  <!-- ═══════════════ COOKIES ═══════════════ -->
+  <div class="section" id="cookies">
+    <h2>3. Cookies</h2>
+
+    <p>Vi bruger kun nødvendige cookies til at sikre, at platformen fungerer korrekt (autentificering og sessionshåndtering). Vi bruger ikke tracking-cookies, annoncecookies eller analysecookies fra tredjeparter. Stripe kan anvende egne cookies i forbindelse med betalingsprocessen.</p>
+  </div>
+
+  <hr class="divider">
+
+
+  <!-- ═══════════════ KONTAKT ═══════════════ -->
+  <div class="section" id="kontakt">
+    <h2>4. Kontaktoplysninger</h2>
+
+    <p>
+      Testrada Pte Ltd<br>
+      Email: <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a><br>
+      Web: <a href="https://dansk3.dk">dansk3.dk</a> · <a href="https://civiclearn.com">civiclearn.com</a>
+    </p>
+    <p>Du kan også bruge vores <a href="/kontakt.html">kontaktformular</a>.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">© 2026 dansk3.dk · Powered by CivicLearn</div>
+    <div class="footer-links">
+      <a href="/vilkaar.html">Vilkår</a>
+      <a href="/privatliv.html">Privatliv</a>
+      <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

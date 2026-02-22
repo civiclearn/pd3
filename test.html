@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gratis PD3-test — Er du klar til Prøve i Dansk 3? — dansk3.dk</title>
+  <meta name="description" content="Tag vores gratis diagnostiske test og find ud af, om du er klar til Prøve i Dansk 3. 5 spørgsmål, 3 minutter, øjeblikkelig resultat.">
+  <meta property="og:title" content="Er du klar til Prøve i Dansk 3? Tag den gratis test">
+  <meta property="og:description" content="5 spørgsmål. 3 minutter. Find ud af, om du er klar til PD3.">
+  <link rel="canonical" href="https://dansk3.dk/test.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #C8102E;
+      --red-dark: #9E0B22;
+      --red-glow: rgba(200, 16, 46, 0.12);
+      --navy: #0f1729;
+      --navy-mid: #1a2744;
+      --cream: #faf8f5;
+      --text: #1a1a2e;
+      --text-soft: #5a5d6e;
+      --text-inv-soft: #9da3b4;
+      --green: #059669;
+      --green-light: #f0fdf4;
+      --amber: #d97706;
+      --amber-light: #fffbeb;
+      --border: rgba(255,255,255,0.08);
+    }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+      font-size: 16px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav { background: rgba(15, 23, 41, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'DM Serif Display', serif; color: #fff; font-size: 1.2rem; text-decoration: none; }
+    .nav-brand span { color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--text-inv-soft); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--red) !important; color: #fff !important; padding: 9px 22px; border-radius: 8px; font-weight: 600; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+    @media (max-width: 640px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+    /* ─── QUIZ CONTAINER ─── */
+    .quiz-page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 24px 100px;
+    }
+
+    /* ─── INTRO STATE ─── */
+    .intro {
+      text-align: center;
+      padding: 40px 0;
+    }
+    .intro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--red-glow);
+      color: var(--red);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .intro h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .intro h1 em { font-style: italic; color: var(--red); }
+    .intro p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .intro-details {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .intro-detail {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .intro-detail strong { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 36px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: inherit;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-red {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.3);
+    }
+    .btn-red:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    /* ─── QUESTION STATE ─── */
+    .question-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .progress-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 32px;
+    }
+    .progress-dot {
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(0,0,0,0.08);
+      transition: background 0.3s;
+    }
+    .progress-dot.done { background: var(--green); }
+    .progress-dot.active { background: var(--red); }
+
+    .q-counter {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .q-type {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+      padding: 4px 12px;
+      background: var(--cream);
+      display: inline-block;
+      border-radius: 6px;
+    }
+    .q-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .q-context {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option {
+      padding: 14px 18px;
+      border: 1.5px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+    }
+    .option:hover { border-color: rgba(0,0,0,0.2); background: var(--cream); }
+    .option.selected {
+      border-color: var(--red);
+      background: var(--red-glow);
+    }
+    .option.correct {
+      border-color: var(--green);
+      background: var(--green-light);
+    }
+    .option.wrong {
+      border-color: #dc2626;
+      background: #fef2f2;
+    }
+    .option-letter {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .option.selected .option-letter { background: var(--red); color: #fff; }
+    .option.correct .option-letter { background: var(--green); color: #fff; }
+    .option.wrong .option-letter { background: #dc2626; color: #fff; }
+
+    .feedback {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      display: none;
+    }
+    .feedback.show { display: block; }
+    .feedback.correct-fb { background: var(--green-light); color: #047857; border: 1px solid #bbf7d0; }
+    .feedback.wrong-fb { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    .feedback strong { display: block; margin-bottom: 4px; }
+
+    .next-wrap {
+      margin-top: 24px;
+      text-align: right;
+      display: none;
+    }
+    .next-wrap.show { display: block; }
+    .btn-next {
+      padding: 12px 28px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-next:hover { background: var(--navy-mid); }
+
+    /* ─── RESULT STATE ─── */
+    .result {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .result-score {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-family: 'DM Serif Display', serif;
+    }
+    .result-score .big {
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .result-score .of {
+      font-size: 0.88rem;
+      font-family: 'DM Sans', sans-serif;
+      opacity: 0.7;
+    }
+    .result-score.high { background: var(--green-light); color: var(--green); border: 3px solid var(--green); }
+    .result-score.mid { background: var(--amber-light); color: var(--amber); border: 3px solid var(--amber); }
+    .result-score.low { background: #fef2f2; color: #dc2626; border: 3px solid #dc2626; }
+
+    .result h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .result .verdict {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .result-breakdown {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .rb-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px 20px;
+      border: 1px solid rgba(0,0,0,0.06);
+      min-width: 120px;
+    }
+    .rb-label {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .rb-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+    }
+    .rb-val.ok { color: var(--green); }
+    .rb-val.warn { color: var(--amber); }
+    .rb-val.bad { color: #dc2626; }
+
+    .result-cta {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin-top: 36px;
+    }
+    .result-cta h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .result-cta p {
+      color: var(--text-inv-soft);
+      font-size: 0.93rem;
+      margin-bottom: 24px;
+    }
+    .result-cta .btn-red { box-shadow: none; }
+
+    .retake {
+      margin-top: 20px;
+      font-size: 0.88rem;
+    }
+    .retake a {
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+    .retake a:hover { text-decoration: underline; }
+
+    /* ─── STATES ─── */
+    .state { display: none; }
+    .state.active { display: block; }
+
+    /* ─── FOOTER ─── */
+    .footer { background: var(--navy); padding: 40px 0; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { font-family: 'DM Serif Display', serif; color: var(--text-inv-soft); font-size: 0.95rem; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--text-inv-soft); text-decoration: none; font-size: 0.85rem; }
+    .footer-links a:hover { color: #fff; }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">dansk<span>3</span>.dk</a>
+    <div class="nav-links">
+      <a href="/">Forside</a>
+      <a href="https://civiclearn.com/dansk3/login.html">Log ind</a>
+      <a href="https://civiclearn.com/dansk3/checkout.html" class="nav-cta">Kom i gang</a>
+    </div>
+  </div>
+</nav>
+
+<div class="quiz-page">
+
+  <!-- ═══════════════ INTRO ═══════════════ -->
+  <div id="state-intro" class="state active">
+    <div class="intro">
+      <div class="intro-badge">✦ Gratis test</div>
+      <h1>Er du klar til <em>Prøve i Dansk 3</em>?</h1>
+      <p>5 spørgsmål fra de tre dele af PD3 — læsning, grammatik og ordforråd. Find ud af, hvor du står.</p>
+      <div class="intro-details">
+        <div class="intro-detail">🕐 <strong>3 minutter</strong></div>
+        <div class="intro-detail">📝 <strong>5 spørgsmål</strong></div>
+        <div class="intro-detail">⚡ <strong>Øjeblikkeligt resultat</strong></div>
+      </div>
+      <button class="btn btn-red" onclick="startQuiz()">Start testen →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════ QUIZ ═══════════════ -->
+  <div id="state-quiz" class="state">
+    <div class="question-card">
+      <div class="progress-bar" id="progress"></div>
+      <div class="q-counter" id="q-counter"></div>
+      <div class="q-type" id="q-type"></div>
+      <div class="q-text" id="q-text"></div>
+      <div class="q-context" id="q-context"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="next-wrap" id="next-wrap">
+        <button class="btn-next" id="next-btn" onclick="nextQuestion()">Næste →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ RESULT ═══════════════ -->
+  <div id="state-result" class="state">
+    <div class="result">
+      <div class="result-score" id="result-score">
+        <div class="big" id="score-num"></div>
+        <div class="of">af 5</div>
+      </div>
+      <h2 id="result-title"></h2>
+      <p class="verdict" id="result-verdict"></p>
+
+      <div class="result-breakdown" id="result-breakdown"></div>
+
+      <div class="result-cta">
+        <h3 id="cta-title"></h3>
+        <p id="cta-text"></p>
+        <a href="https://civiclearn.com/dansk3/checkout.html" class="btn btn-red">Se priser og kom i gang →</a>
+      </div>
+
+      <div class="retake">
+        <a href="javascript:location.reload()">↻ Tag testen igen</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">© 2026 dansk3.dk · Powered by CivicLearn</div>
+    <div class="footer-links">
+      <a href="/vilkaar.html">Vilkår</a>
+      <a href="/privatliv.html">Privatliv</a>
+      <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const questions = [
+  {
+    type: 'Læseforståelse — Udfyldning',
+    text: 'Udfyld hullet med det rigtige ord:',
+    context: '"Danmark har en lang tradition for frivilligt arbejde. Mange danskere _____ sig i lokale foreninger, og det er en vigtig del af det danske samfundsliv."',
+    options: ['engagerer', 'anvender', 'optager', 'begynder'],
+    correct: 0,
+    explanation: '"Engagerer sig" er den korrekte kollokation i denne kontekst — man engagerer sig i foreningslivet. De andre verber kræver andre præpositioner eller giver ikke mening her.'
+  },
+  {
+    type: 'Grammatik — Ordstilling',
+    text: 'Hvilken sætning har korrekt ordstilling?',
+    context: '',
+    options: [
+      'Selvom hun var træt, hun fortsatte med at arbejde.',
+      'Selvom hun var træt, fortsatte hun med at arbejde.',
+      'Selvom var hun træt, hun fortsatte med at arbejde.',
+      'Selvom hun var træt, med at arbejde fortsatte hun.'
+    ],
+    correct: 1,
+    explanation: 'I en bisætning med "selvom" følger hovedsætningen inversionsreglen: verbalet (fortsatte) kommer før subjektet (hun). Dette er en klassisk B2-udfordring i dansk.'
+  },
+  {
+    type: 'Ordforråd — Idiomer',
+    text: 'Hvad betyder udtrykket "at slå to fluer med ét smæk"?',
+    context: '',
+    options: [
+      'At gøre noget meget hurtigt',
+      'At løse to problemer med én handling',
+      'At vælge mellem to dårlige muligheder',
+      'At gentage den samme fejl to gange'
+    ],
+    correct: 1,
+    explanation: 'Udtrykket betyder at opnå to ting på én gang — at løse to problemer med samme handling. Det svarer til det engelske "to kill two birds with one stone."'
+  },
+  {
+    type: 'Læseforståelse — Tekstforståelse',
+    text: 'Læs teksten og besvar spørgsmålet:',
+    context: '"Den nye flexboligordning giver kommunerne mulighed for at dispensere fra bopælspligten i landdistrikterne. Det betyder, at boliger i tyndt befolkede områder kan bruges som fritidsboliger, hvilket ifølge tilhængerne kan tiltrække nye beboere og modvirke affolkning."<br><br>Hvad er formålet med flexboligordningen?',
+    options: [
+      'At forhindre opkøb af sommerhuse',
+      'At gøre det muligt at bruge helårsboliger som fritidsboliger',
+      'At tvinge folk til at bo i landdistrikterne',
+      'At sænke boligpriserne i byerne'
+    ],
+    correct: 1,
+    explanation: 'Teksten beskriver, at ordningen giver dispensation fra bopælspligten, så boliger kan bruges som fritidsboliger. Det handler om fleksibilitet i boliganvendelse, ikke tvang eller prisregulering.'
+  },
+  {
+    type: 'Grammatik — Konjunktioner',
+    text: 'Udfyld hullet med den rigtige konjunktion:',
+    context: '"Regeringen ønsker at reducere CO₂-udledningen, _____ den har sat et ambitiøst mål om klimaneutralitet inden 2050."',
+    options: ['fordi', 'selvom', 'medmindre', 'hvorfor'],
+    correct: 3,
+    explanation: '"Hvorfor" fungerer her som en relativ konjunktion, der knytter en forklarende bisætning til hovedsætningen — "…og det er grunden til, at den har sat et mål." Det er et typisk B2-niveau ordvalg.'
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+const results = []; // track each question
+
+function showState(name) {
+  document.querySelectorAll('.state').forEach(el => el.classList.remove('active'));
+  document.getElementById('state-' + name).classList.add('active');
+}
+
+function startQuiz() {
+  current = 0;
+  score = 0;
+  results.length = 0;
+  answered = false;
+  showState('quiz');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = questions[current];
+  answered = false;
+
+  // Progress
+  const bar = document.getElementById('progress');
+  bar.innerHTML = questions.map((_, i) =>
+    `<div class="progress-dot ${i < current ? 'done' : ''} ${i === current ? 'active' : ''}"></div>`
+  ).join('');
+
+  document.getElementById('q-counter').textContent = `Spørgsmål ${current + 1} af ${questions.length}`;
+  document.getElementById('q-type').textContent = q.type;
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('q-context').innerHTML = q.context || '';
+
+  const opts = document.getElementById('options');
+  opts.innerHTML = q.options.map((opt, i) =>
+    `<div class="option" data-idx="${i}" onclick="selectOption(${i})">
+      <div class="option-letter">${String.fromCharCode(65 + i)}</div>
+      <div>${opt}</div>
+    </div>`
+  ).join('');
+
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('feedback').innerHTML = '';
+  document.getElementById('next-wrap').className = 'next-wrap';
+  document.getElementById('next-btn').textContent =
+    current < questions.length - 1 ? 'Næste →' : 'Se resultat →';
+}
+
+function selectOption(idx) {
+  if (answered) return;
+  answered = true;
+
+  const q = questions[current];
+  const isCorrect = idx === q.correct;
+  if (isCorrect) score++;
+  results.push({ correct: isCorrect, type: q.type });
+
+  // Highlight options
+  document.querySelectorAll('.option').forEach((el, i) => {
+    if (i === q.correct) el.className = 'option correct';
+    else if (i === idx && !isCorrect) el.className = 'option wrong';
+    el.style.cursor = 'default';
+  });
+
+  // Show feedback
+  const fb = document.getElementById('feedback');
+  fb.innerHTML = `<strong>${isCorrect ? '✓ Korrekt!' : '✗ Forkert'}</strong>${q.explanation}`;
+  fb.className = `feedback show ${isCorrect ? 'correct-fb' : 'wrong-fb'}`;
+
+  // Show next button
+  document.getElementById('next-wrap').className = 'next-wrap show';
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= questions.length) {
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  showState('result');
+
+  const scoreEl = document.getElementById('result-score');
+  document.getElementById('score-num').textContent = score;
+
+  if (score >= 4) {
+    scoreEl.className = 'result-score high';
+    document.getElementById('result-title').textContent = 'Du ser godt ud!';
+    document.getElementById('result-verdict').textContent =
+      'Du har et stærkt udgangspunkt for PD3. Men husk — den rigtige prøve tester også skriftlig fremstilling og mundtlig kommunikation, som denne korte test ikke dækker.';
+    document.getElementById('cta-title').textContent = 'Klar til den fulde prøve?';
+    document.getElementById('cta-text').textContent =
+      'Test dig selv med alle 9 delprøver — inkl. skriftlig og mundtlig med AI-evaluering og karakterer på 7-trins-skalaen.';
+  } else if (score >= 2) {
+    scoreEl.className = 'result-score mid';
+    document.getElementById('result-title').textContent = 'Du er på rette vej';
+    document.getElementById('result-verdict').textContent =
+      'Du har grundlaget, men der er områder, der kræver mere øvelse. Systematisk træning med feedback kan gøre en stor forskel.';
+    document.getElementById('cta-title').textContent = 'Find dine svage punkter';
+    document.getElementById('cta-text').textContent =
+      'Vores 10 simulationer dækker alle 9 delprøver med detaljeret AI-feedback, så du ved præcis, hvad du skal fokusere på.';
+  } else {
+    scoreEl.className = 'result-score low';
+    document.getElementById('result-title').textContent = 'Du har brug for mere forberedelse';
+    document.getElementById('result-verdict').textContent =
+      'PD3 kræver dansk på B2-niveau. Du bør fokusere på grammatik, ordforråd og læseforståelse inden prøven. Grundig forberedelse kan gøre forskellen.';
+    document.getElementById('cta-title').textContent = 'Start din forberedelse nu';
+    document.getElementById('cta-text').textContent =
+      'Lær prøvens format at kende og øv dig med realistiske simulationer. Ubegrænset adgang — træn i dit eget tempo.';
+  }
+
+  // Breakdown
+  const categories = {};
+  results.forEach(r => {
+    const cat = r.type.split('—')[0].trim();
+    if (!categories[cat]) categories[cat] = { correct: 0, total: 0 };
+    categories[cat].total++;
+    if (r.correct) categories[cat].correct++;
+  });
+
+  const breakdown = document.getElementById('result-breakdown');
+  breakdown.innerHTML = Object.entries(categories).map(([cat, data]) => {
+    const pct = Math.round((data.correct / data.total) * 100);
+    const cls = pct >= 80 ? 'ok' : pct >= 50 ? 'warn' : 'bad';
+    return `<div class="rb-item">
+      <div class="rb-label">${cat}</div>
+      <div class="rb-val ${cls}">${data.correct}/${data.total}</div>
+    </div>`;
+  }).join('');
+}
+</script>
+
+</body>
+</html>
