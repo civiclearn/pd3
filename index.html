@@ -48,6 +48,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=11">
 
   <!-- Site-specific overrides -->
   <style>
@@ -326,199 +327,122 @@
 <body>
 
 <!-- HEADER -->
-<header class="cl-header">
-  <div class="cl-header-inner">
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" class="logo"><img alt="DK" src="/assets/images/dk.svg"/><span>dansk3.dk</span></a>
 
-    <a href="/" class="cl-logo">
-      <img src="/assets/images/dk.svg" alt="DK" />
-      <span>dansk3.dk</span>
-    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"
+      onclick="var o=document.getElementById('hdr').classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
 
-    <nav class="cl-nav">
+    <nav class="nav" id="site-nav">
       <a href="/gratis-test.html">Gratis test</a>
       <a href="/hvad-er-pd3.html">Hvad er PD3?</a>
       <a href="/kontakt.html">Kontakt</a>
       <a href="https://civiclearn.com/dansk3/login.html">Log ind</a>
     </nav>
 
-    <div class="cl-right">
-      <div class="cl-powered">
-        powered by <span>CivicLearn</span>
+    <div class="hdr-right">
+      <div class="powered">
+        <div>powered by <b>CivicLearn</b></div>
+        <a class="tp" href="https://www.trustpilot.com/review/civiclearn.com" target="_blank" rel="noopener" aria-label="CivicLearn på Trustpilot: 4,5 ud af 5">
+          <span class="tp-stars" aria-hidden="true">
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="12.5" height="25" fill="#00b67a"/><rect x="12.5" width="12.5" height="25" fill="#dcdce6"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+          </span>
+          <span class="tp-word">Trustpilot</span>
+        </a>
       </div>
-      <a href="https://civiclearn.com/dansk3/checkout.html" class="cl-btn">
-        Fuld adgang
-      </a>
+      <a href="https://civiclearn.com/dansk3/checkout.html" class="btn btn-primary">Fuld adgang</a>
     </div>
-
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- EXAM STATUS BAR -->
-  <section class="exam-status">
-    <div class="exam-status-inner">
-
-      <!-- LEFT ROW: EXAM DATE -->
-      <div class="exam-status-row">
-        <div class="exam-status-counter" id="status-test-counter">
-          <span class="count-number">—</span>
-          <span class="count-unit">DAGE</span>
-        </div>
-
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-test-text">
+  <div class="wrap hero-status">
+      <section class="exam-status exam-status-wide">
+<div class="exam-status-inner">
+<!-- LEFT ROW: EXAM DATE -->
+<div class="exam-status-row">
+<div class="exam-status-counter" id="status-test-counter">
+<span class="count-number">—</span>
+<span class="count-unit">DAGE</span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-test-text">
             Skriftlig prøve: <strong>19. maj 2026</strong>.
           </p>
-        </div>
-      </div>
-
-      <!-- RIGHT ROW: REGISTRATION / NEXT PHASE -->
-      <div class="exam-status-row exam-status-row--registration">
-        <div class="exam-status-counter" id="status-reg-counter">
-          <span class="count-number">—</span>
-          <span class="count-unit">DAGE</span>
-        </div>
-
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-reg-text">
+</div>
+</div>
+<!-- RIGHT ROW: REGISTRATION / NEXT PHASE -->
+<div class="exam-status-row exam-status-row--registration">
+<div class="exam-status-counter" id="status-reg-counter">
+<span class="count-number">—</span>
+<span class="count-unit">DAGE</span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-reg-text">
             Tilmeldingsfrist: <strong>9. marts 2026</strong>.
           </p>
-        </div>
+</div>
+</div>
+</div>
+</section>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      
+      
+      
+      <h1><span>Forbered dig til Prøve i Dansk 3</span> og bestå første gang</h1>
+      <p class="hero-sub">10 komplette simulationer med AI-evaluering og karakterer på 7-trins-skalaen. Øv i dit eget tempo — og vid præcis, om du er klar.</p>
+      <div class="hero-ctas">
+        <a href="https://civiclearn.com/dansk3/checkout.html" class="btn btn-primary" id="hero-cta">Kom i gang</a>
+        <a href="/gratis-test.html" class="btn btn-ghost">Gratis test</a>
       </div>
-
-    </div>
-  </section>
-
-  <!-- HERO CENTER CONTENT -->
-  <div class="hero-center hero-center--spaced">
-
-    <h1 class="hero-title">
-      <span>Forbered dig til Prøve i Dansk 3<br></span>
-      og bestå første gang
-    </h1>
-
-    <p class="hero-subtitle">
-      10 komplette simulationer med AI-evaluering og karakterer på 7-trins-skalaen.<br>
-      Øv i dit eget tempo — og vid præcis, om du er klar.
-    </p>
-
-    <div class="hero-actions">
-      <a href="https://civiclearn.com/dansk3/checkout.html" class="hero-primary-btn">
-        Kom i gang
-      </a>
-      <a href="/gratis-test.html" class="hero-secondary-btn">
-        Gratis test
-      </a>
-    </div>
-
-    <div class="hero-social">
-      <div class="hero-social-top">
-        <span class="rating-stars">★★★★★</span>
-        <span class="rating-word">Fremragende</span>
-      </div>
-      <div class="hero-social-sub">
-        Over 11.000 brugere forberedt<br class="mobile-only">via CivicLearn siden 2005.
+      <p class="hero-meta" id="v2Meta"><strong>899 kr., engangsbetaling</strong> · ubegrænset adgang · intet abonnement</p>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <strong>Fremragende</strong>
+        <span>Over 11.000 brugere forberedt via CivicLearn siden 2005.</span>
       </div>
     </div>
-
-    <style>
-      .hero-social { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; max-width: min(100%, 480px); margin: 0 auto; }
-      .hero-social-top { display: flex; align-items: center; gap: 0.4rem; }
-      .hero-social-sub { font-size: 0.88rem; color: #666; text-align: center; max-width: 100%; overflow-wrap: break-word; padding: 0 1rem; }
-      .mobile-only { display: none; }
-      @media (max-width: 820px) { .mobile-only { display: inline; } }
-      @media (min-width: 821px) {
-        .hero-social { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-        .hero-social-sub::before { content: "· "; }
-      }
-    </style>
-
-    <div class="hero-image-wide">
-      <img src="/assets/images/devices-dansk3.webp" alt="Dansk3-platformen vist på computer, tablet og mobil">
+    <div class="hero-img">
+      <img src="/assets/images/devices-dansk3.webp" alt="Dansk3-platformen vist på computer, tablet og mobil" width="2941" height="1924" fetchpriority="high" decoding="async">
     </div>
-
   </div>
 </section>
 
 
 <!-- FEATURES: EXAM COMPONENTS -->
-<section class="features-section">
-
-  <div class="section-heading">
-    <div class="section-kicker">Prøvens opbygning</div>
-    <h2 class="section-title">3 dele. 9 delprøver. Alt dækket.</h2>
-    <p class="section-lead">
-      Simulationer, der følger den officielle struktur fra Udlændinge- og Integrationsministeriet, punkt for punkt.
-    </p>
-  </div>
-
-  <div class="features-grid">
-
-    <!-- CARD 1: Læseforståelse -->
-    <div class="feature-card" onclick="location.href='/hvad-er-pd3.html'">
-      <a href="/hvad-er-pd3.html" class="feature-card-link">
-
-        <div class="feature-icon">
-          <img src="/assets/images/5.svg" alt="Læseforståelse">
-        </div>
-
-        <h3 class="feature-title">Læseforståelse</h3>
-
-        <p class="feature-text">
-          Åbne spørgsmål, flervalg, paragraf-matching og udfyldningsopgaver. 4 delprøver, der tester din evne til at forstå og bearbejde danske tekster.
-        </p>
-
-        <div class="feature-cta">
-          Læs mere om prøven <span class="arrow">›</span>
-        </div>
-
-      </a>
+<section class="section feat-v2">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Prøvens opbygning</span><h2>3 dele. 9 delprøver. Alt dækket.</h2><p>Simulationer, der følger den officielle struktur fra Udlændinge- og Integrationsministeriet, punkt for punkt.</p></div>
+    <div class="features">
+      <div class="feature">
+        <img src="/assets/images/5.svg" alt="">
+        <h3>Læseforståelse</h3>
+        <p>Åbne spørgsmål, flervalg, paragraf-matching og udfyldningsopgaver. 4 delprøver, der tester din evne til at forstå og bearbejde danske tekster.</p>
+        <a class="feat-link" href="/hvad-er-pd3.html">Læs mere om prøven <span class="arrow">›</span></a>
+      </div>
+      <div class="feature">
+        <img src="/assets/images/6.svg" alt="">
+        <h3>Skriftlig fremstilling</h3>
+        <p>Skriv en uformel e-mail og en formel argumenterende tekst. AI evaluerer din besvarelse med en karakter på 7-trins-skalaen og detaljeret feedback.</p>
+        <a class="feat-link" href="/gratis-test.html">Prøv gratis <span class="arrow">›</span></a>
+      </div>
+      <div class="feature">
+        <img src="/assets/images/3.svg" alt="">
+        <h3>Mundtlig kommunikation</h3>
+        <p>Forbered og hold et oplæg, svar på opfølgningsspørgsmål og deltag i en samtale. Optag din stemme direkte i browseren — AI transskriberer og bedømmer.</p>
+        <a class="feat-link" href="https://civiclearn.com/dansk3/checkout.html">Kom i gang <span class="arrow">›</span></a>
+      </div>
     </div>
-
-    <!-- CARD 2: Skriftlig fremstilling -->
-    <div class="feature-card" onclick="location.href='/gratis-test.html'">
-      <a href="/gratis-test.html" class="feature-card-link">
-
-        <div class="feature-icon">
-          <img src="/assets/images/6.svg" alt="Skriftlig fremstilling">
-        </div>
-
-        <h3 class="feature-title">Skriftlig fremstilling</h3>
-
-        <p class="feature-text">
-          Skriv en uformel e-mail og en formel argumenterende tekst. AI evaluerer din besvarelse med en karakter på 7-trins-skalaen og detaljeret feedback.
-        </p>
-
-        <div class="feature-cta">
-          Prøv gratis <span class="arrow">›</span>
-        </div>
-
-      </a>
-    </div>
-
-    <!-- CARD 3: Mundtlig kommunikation -->
-    <div class="feature-card" onclick="location.href='https://civiclearn.com/dansk3/checkout.html'">
-      <a href="https://civiclearn.com/dansk3/checkout.html" class="feature-card-link">
-
-        <div class="feature-icon">
-          <img src="/assets/images/3.svg" alt="Mundtlig kommunikation">
-        </div>
-
-        <h3 class="feature-title">Mundtlig kommunikation</h3>
-
-        <p class="feature-text">
-          Forbered og hold et oplæg, svar på opfølgningsspørgsmål og deltag i en samtale. Optag din stemme direkte i browseren — AI transskriberer og bedømmer.
-        </p>
-
-        <div class="feature-cta">
-          Kom i gang <span class="arrow">›</span>
-        </div>
-
-      </a>
-    </div>
-
   </div>
 </section>
 
@@ -526,210 +450,110 @@
 
 
 <!-- PRICING -->
-<section class="premium-pricing">
-  <div class="pricing-cards-duo">
-
-    <!-- PD3 Standalone -->
-    <div class="pricing-card">
-      <div class="pricing-top">
-        <span class="pricing-tag">Prøve i Dansk 3</span>
-      </div>
-
-      <div class="pricing-price">
-        <div class="amount">899 kr.</div>
-        <div class="subtitle">Engangsbetaling — ubegrænset adgang</div>
-      </div>
-
-      <div class="pricing-divider"></div>
-
-      <ul class="feature-list">
-        <li>10 komplette PD3-simulationer</li>
-        <li>Alle 9 delprøver dækket</li>
-        <li>AI-evaluering med 7-trins-karakterer</li>
-        <li>Mundtlig optagelse og feedback</li>
-        <li>Ubegrænsede forsøg</li>
-        <li>Adgang fra alle enheder</li>
-        <li>Øjeblikkelig aktivering</li>
+<section class="section pricing-v2" id="pricing">
+  <div class="wrap">
+    <div class="section-head center"><span class="kicker">Priser</span><h2>Vælg din pakke</h2></div>
+    <div class="plan-duo">
+    <div class="plan">
+      <span class="price-tag">Prøve i Dansk 3</span>
+      <div class="price-amount">899 kr.<small>én gang</small></div>
+      <p class="price-sub">Engangsbetaling — ubegrænset adgang</p>
+      <ul class="checks">
+          <li>10 komplette PD3-simulationer</li>
+          <li>Alle 9 delprøver dækket</li>
+          <li>AI-evaluering med 7-trins-karakterer</li>
+          <li>Mundtlig optagelse og feedback</li>
+          <li>Ubegrænsede forsøg</li>
+          <li>Adgang fra alle enheder</li>
+          <li>Øjeblikkelig aktivering</li>
       </ul>
-
-      <a class="pricing-cta secondary" href="https://civiclearn.com/dansk3/checkout.html">
-        Vælg denne
-      </a>
+      <a class="btn btn-ghost" href="https://civiclearn.com/dansk3/checkout.html">Vælg denne</a>
     </div>
-
-    <!-- Combo -->
-    <div class="pricing-card featured">
-      <div class="pricing-top">
-        <span class="pricing-tag">Dansk 3 + Indfødsretsprøven</span>
-      </div>
-
-      <div class="pricing-price">
-        <div class="amount">999 kr.</div>
-        <div class="subtitle">Engangsbetaling — adgang til begge</div>
-      </div>
-
-      <div class="pricing-divider"></div>
-
-      <ul class="feature-list">
-        <li>Alt fra Prøve i Dansk 3</li>
-        <li>Fuld adgang til Indfødsretsprøven</li>
-        <li>3.000+ spørgsmål inkl. aktuelle emner og danske værdier</li>
-        <li>Komplet medborgerskabsforberedelse</li>
-        <li>Adgang fra alle enheder</li>
-        <li>Øjeblikkelig aktivering</li>
+    <div class="plan plan-featured">
+      <span class="price-tag">Dansk 3 + Indfødsretsprøven</span>
+      <div class="price-amount">999 kr.<small>én gang</small></div>
+      <p class="price-sub">Engangsbetaling — adgang til begge</p>
+      <ul class="checks">
+          <li>Alt fra Prøve i Dansk 3</li>
+          <li>Fuld adgang til Indfødsretsprøven</li>
+          <li>3.000+ spørgsmål inkl. aktuelle emner og danske værdier</li>
+          <li>Komplet medborgerskabsforberedelse</li>
+          <li>Adgang fra alle enheder</li>
+          <li>Øjeblikkelig aktivering</li>
       </ul>
-
-      <a class="pricing-cta" href="https://civiclearn.com/dansk3/checkout.html">
-        Vælg denne — spar 399 kr.
-      </a>
-
-      <div style="text-align: center; padding: 0.8rem 0 0.4rem;">
-        <span class="pricing-save">Bedste værdi — alt du behøver til statsborgerskab</span>
-      </div>
+      <a class="btn btn-primary" href="https://civiclearn.com/dansk3/checkout.html">Vælg denne — spar 399 kr.</a>
+      <p class="plan-save">Bedste værdi — alt du behøver til statsborgerskab</p>
     </div>
-
-  </div>
-
-  <div class="pricing-guarantee">
-    Engangsbetaling. Ingen abonnement. Sikker betaling via Stripe.
+    </div>
+    <p class="price-note plan-note">Engangsbetaling. Ingen abonnement. Sikker betaling via Stripe.</p>
   </div>
 </section>
 
 
 <!-- FAQ -->
-<section class="cl-faq">
-
-  <div class="section-heading">
-    <div class="section-kicker">Ofte stillede spørgsmål</div>
-    <h2 class="section-title">FAQ — Prøve i Dansk 3</h2>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Er det en rigtig prøve?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Nej — det er en træningsplatform med simulationer, der følger det officielle PD3-format punkt for punkt. Du får realistisk øvelse og AI-evaluering, men det er ikke en officiel prøve og erstatter ikke den rigtige.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Er det en abonnementsløsning?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Nej. Det er en engangsbetaling. Du betaler én gang og har ubegrænset adgang. Ingen automatisk fornyelse, ingen skjulte gebyrer.</p>
+<section class="section" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="section-head"><span class="kicker">Ofte stillede spørgsmål</span><h2>FAQ — Prøve i Dansk 3</h2><p id="v2FaqMore">Andre spørgsmål? <a href="/kontakt.html">Skriv til os</a>.</p></div>
+    <div class="faq-list">
+      <details><summary>Er det en rigtig prøve?</summary><p>Nej — det er en træningsplatform med simulationer, der følger det officielle PD3-format punkt for punkt. Du får realistisk øvelse og AI-evaluering, men det er ikke en officiel prøve og erstatter ikke den rigtige.</p></details>
+      <details><summary>Er det en abonnementsløsning?</summary><p>Nej. Det er en engangsbetaling. Du betaler én gang og har ubegrænset adgang. Ingen automatisk fornyelse, ingen skjulte gebyrer.</p></details>
+      <details><summary>Hvordan virker AI-evalueringen?</summary><p>Dine skriftlige og mundtlige besvarelser analyseres af AI kalibreret efter den officielle bedømmelsesvejledning fra Udlændinge- og Integrationsministeriet. Du får en karakter på 7-trins-skalaen med detaljeret feedback om styrker, svagheder og konkrete forbedringspunkter.</p></details>
+      <details><summary>Jeg har lige betalt. Hvad sker der nu?</summary><p>Efter betalingen bliver du automatisk omdirigeret til at oprette en adgangskode. Vælg en adgangskode, og du har øjeblikkelig adgang — ingen bekræftelsesmails nødvendige.</p></details>
+      <details><summary>Ligner spørgsmålene dem i den rigtige prøve?</summary><p>Vores simulationer er udarbejdet efter det officielle PD3-format og de bedømmelseskriterier, som er fastlagt af Udlændinge- og Integrationsministeriet. Vi har ingen tilknytning til ministeriet — vores formål er udelukkende at hjælpe dig med at forberede dig effektivt.</p></details>
+      <details><summary>Kan jeg tage simulationerne flere gange?</summary><p>Ja, ubegrænset. Du kan nulstille og gentage enhver simulation så mange gange du vil. Mange brugere tager den samme simulation flere gange for at se deres fremskridt.</p></details>
+      <details><summary>Virker det på mobil og tablet?</summary><p>Ja. Du kan bruge platformen fra enhver enhed med en browser og internetforbindelse — computer, tablet eller mobil.</p></details>
+      <details><summary>Hvad hvis jeg allerede har bestået Indfødsretsprøven?</summary><p>Så er "Prøve i Dansk 3"-pakken den rigtige for dig til 899 kr. Du behøver ikke combo-pakken, medmindre du vil genopfriske din viden om samfundsforhold.</p></details>
+      <details><summary>Hvem står bag platformen?</summary><p>dansk3.dk drives af CivicLearn, som siden 2005 har hjulpet over 11.000 brugere i mere end 15 lande med forberedelse til medborgerskabs- og sprogprøver.</p></details>
     </div>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Hvordan virker AI-evalueringen?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Dine skriftlige og mundtlige besvarelser analyseres af AI kalibreret efter den officielle bedømmelsesvejledning fra Udlændinge- og Integrationsministeriet. Du får en karakter på 7-trins-skalaen med detaljeret feedback om styrker, svagheder og konkrete forbedringspunkter.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Jeg har lige betalt. Hvad sker der nu?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Efter betalingen bliver du automatisk omdirigeret til at oprette en adgangskode. Vælg en adgangskode, og du har øjeblikkelig adgang — ingen bekræftelsesmails nødvendige.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Ligner spørgsmålene dem i den rigtige prøve?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Vores simulationer er udarbejdet efter det officielle PD3-format og de bedømmelseskriterier, som er fastlagt af Udlændinge- og Integrationsministeriet. Vi har ingen tilknytning til ministeriet — vores formål er udelukkende at hjælpe dig med at forberede dig effektivt.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Kan jeg tage simulationerne flere gange?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Ja, ubegrænset. Du kan nulstille og gentage enhver simulation så mange gange du vil. Mange brugere tager den samme simulation flere gange for at se deres fremskridt.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Virker det på mobil og tablet?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Ja. Du kan bruge platformen fra enhver enhed med en browser og internetforbindelse — computer, tablet eller mobil.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Hvad hvis jeg allerede har bestået Indfødsretsprøven?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Så er "Prøve i Dansk 3"-pakken den rigtige for dig til 899 kr. Du behøver ikke combo-pakken, medmindre du vil genopfriske din viden om samfundsforhold.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Hvem står bag platformen?</span>
-    </div>
-    <div class="faq-answer">
-      <p>dansk3.dk drives af CivicLearn, som siden 2005 har hjulpet over 11.000 brugere i mere end 15 lande med forberedelse til medborgerskabs- og sprogprøver.</p>
-    </div>
-  </div>
-
 </section>
 
 
 
 
-<!-- PASSPORT RANKING STRIP — standalone (no articles block on this page); placed below the funnel -->
-<section style="padding:8px 24px 28px;">
-  <a href="https://civiclearn.com/passport-ranking"
-     style="display:flex;align-items:center;gap:14px;max-width:820px;margin:0 auto;padding:13px 22px;background:#fff;border:1px solid #e5e1da;border-left:3px solid #7c3aed;border-radius:12px;text-decoration:none;color:#1d2230;text-align:left;transition:border-color .15s,box-shadow .15s;"
-     onmouseover="this.style.borderColor='#7c3aed';this.style.boxShadow='0 4px 16px rgba(124,58,237,.12)'"
-     onmouseout="this.style.borderColor='#e5e1da';this.style.borderLeftColor='#7c3aed';this.style.boxShadow='none'">
-    <span style="flex:0 0 auto;background:#f5f0ff;color:#7c3aed;font-weight:700;font-size:.7rem;letter-spacing:.02em;padding:5px 10px;border-radius:6px;white-space:nowrap;">PAS-RANGLISTE</span>
-    <span style="flex:1 1 auto;min-width:0;font-size:.86rem;line-height:1.45;color:#555;text-align:left;">
-      <strong style="color:#1a1a2e;">Danmark har verdens 3.-bedste pas</strong> — ikke målt på turisme.
-    </span>
-    <span style="flex:0 0 auto;color:#7c3aed;font-weight:600;font-size:.84rem;white-space:nowrap;">Se ranglisten &rarr;</span>
-  </a>
-</section>
+
 
 
 
 <!-- COMPATIBILITY -->
-<section class="compat-section">
-  <div class="compat-inner">
-
-    <h2 class="compat-title">Kompatibel med alle moderne enheder og browsere</h2>
-
-    <div class="compat-grid">
-      <div class="compat-item"><img src="/assets/images/logos/windows.svg"><p>Windows</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/macos.svg"><p>macOS</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/android.svg"><p>Android</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/ios.svg"><p>iPhone / iPad</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/chrome.svg"><p>Chrome</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/safari.svg"><p>Safari</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/firefox.svg"><p>Firefox</p></div>
+<!-- CLOSING CTA -->
+<section class="closing-wrap" style="padding:24px 0 40px">
+  <div class="wrap">
+    <div class="closing">
+      <div>
+        <h2 id="v2ClosingH">Klar til Prøve i Dansk 3?</h2>
+        <p id="v2ClosingP">10 komplette simulationer af alle 9 delprøver med AI-evaluering på 7-trins-skalaen. 899 kr., én gang.</p>
+      </div>
+      <a href="https://civiclearn.com/dansk3/checkout.html" class="btn btn-primary" id="v2ClosingBtn">Kom i gang</a>
     </div>
+  </div>
+</section>
 
+<section style="padding:24px 0 0">
+  <div class="wrap">
+    <a class="rank" href="https://civiclearn.com/passport-ranking">
+      <span class="rank-tag">PAS-RANGLISTE</span>
+      <span><strong>Danmark har verdens 3.-bedste pas</strong> — ikke målt på turisme.</span>
+      <span class="rank-go">Se ranglisten →</span>
+    </a>
+    <div class="devices" aria-label="Kompatibel med alle moderne enheder og browsere">
+      <span class="sr-only">Kompatibel med alle moderne enheder og browsere</span>
+      <span><img src="/assets/images/logos/windows.svg" alt="">Windows</span>
+      <span><img src="/assets/images/logos/macos.svg" alt="">macOS</span>
+      <span><img src="/assets/images/logos/android.svg" alt="">Android</span>
+      <span><img src="/assets/images/logos/ios.svg" alt="">iPhone / iPad</span>
+      <span><img src="/assets/images/logos/chrome.svg" alt="">Chrome</span>
+      <span><img src="/assets/images/logos/safari.svg" alt="">Safari</span>
+      <span><img src="/assets/images/logos/firefox.svg" alt="">Firefox</span>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
+<footer class="foot">
+  <div class="wrap">
     <div>© <span id="footer-year"></span> dansk3.dk — medlem af CivicLearn-netværket.</div>
-    <div class="footer-links">
+    <nav>
       <a href="https://civiclearn.com/insights">Insights</a>
       <a href="/gratis-test.html">Gratis test</a>
       <a href="/hvad-er-pd3.html">Hvad er PD3?</a>
@@ -737,7 +561,7 @@
       <a href="/kontakt.html">Kontakt</a>
       <a href="/vilkaar.html">Vilkår</a>
       <a href="/privatliv.html">Privatliv</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
@@ -991,5 +815,22 @@ document.addEventListener("DOMContentLoaded", updatePD3Status);
 })();
 </script>
 
+<!-- Mobile sticky CTA (appears once the hero button scrolls away, hides over the quiz and pricing) -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <span id="v2Sticky"><b>899 kr., én gang</b>Ubegrænset adgang</span>
+  <a href="https://civiclearn.com/dansk3/checkout.html" class="btn btn-primary" tabindex="-1" id="v2StickyBtn">Kom i gang</a>
+</div>
+
+<script>
+(function(){
+  var s=document.getElementById('sticky-cta'), h=document.querySelector('.hero-ctas .btn-primary'), p=document.getElementById('pricing'), q=document.getElementById('no-quiz');
+  if(!('IntersectionObserver' in window)||!s||!h) return;
+  var heroGone=false, priceVisible=false, quizVisible=false;
+  function upd(){var on=heroGone&&!priceVisible&&!quizVisible;s.classList.toggle('show',on);s.setAttribute('aria-hidden',on?'false':'true');}
+  new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd();}).observe(h);
+  if(p) new IntersectionObserver(function(e){priceVisible=e[0].isIntersecting;upd();},{threshold:.15}).observe(p);
+  if(q) new IntersectionObserver(function(e){quizVisible=e[0].isIntersecting;upd();},{threshold:.05}).observe(q);
+})();
+</script>
 </body>
 </html>
